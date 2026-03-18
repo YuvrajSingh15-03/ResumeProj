@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Applicant Mode</h2>
+<p>Upload your resume and a job description to see how well you match and receive feedback.</p>
+
+<form method="POST" enctype="multipart/form-data" class="card p-4 bg-white shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Job Description (plain text)</label>
+    <textarea name="job_description" class="form-control" rows="5" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Your Resume (PDF or TXT)</label>
+    <input type="file" name="resume" accept=".pdf,.txt" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-success">Check My Resume</button>
+</form>
+{% endblock %}
