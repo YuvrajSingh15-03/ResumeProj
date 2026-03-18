@@ -1,17 +1,71 @@
 {% extends "base.html" %}
-{% block content %}
-<h2>Applicant Mode</h2>
-<p>Upload your resume and a job description to see how well you match and receive feedback.</p>
 
-<form method="POST" enctype="multipart/form-data" class="card p-4 bg-white shadow-sm">
-  <div class="mb-3">
-    <label class="form-label">Job Description (plain text)</label>
-    <textarea name="job_description" class="form-control" rows="5" required></textarea>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Your Resume (PDF or TXT)</label>
-    <input type="file" name="resume" accept=".pdf,.txt" class="form-control" required>
-  </div>
-  <button type="submit" class="btn btn-success">Check My Resume</button>
-</form>
+{% block title %}Applicant Mode - Resume Screener{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto w-full py-4">
+    <!-- Header Section -->
+    <div class="text-center mb-10">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-6 shadow-inner border border-blue-100 dark:border-blue-800/50">
+            <i class="ph-bold ph-user-focus text-4xl"></i>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Applicant Mode</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 px-4">
+            Upload your resume and the target job description to instantly see how well you match and receive tailored feedback.
+        </p>
+    </div>
+
+    <!-- Main Form Card -->
+    <div class="card-modern p-6 sm:p-10">
+        <form method="POST" enctype="multipart/form-data" class="space-y-8">
+            
+            <!-- Job Description Input -->
+            <div>
+                <label for="jobDesc" class="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white mb-2">
+                    <i class="ph-bold ph-file-text text-blue-500 text-lg"></i>
+                    Job Description
+                </label>
+                <textarea id="jobDesc" name="job_description" rows="6" placeholder="Paste the complete job description here..." required 
+                    class="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"></textarea>
+                <div class="flex items-start gap-1.5 text-sm text-slate-500 dark:text-slate-400 mt-2">
+                    <i class="ph-fill ph-info mt-0.5 text-slate-400 dark:text-slate-500"></i>
+                    <span>Paste the plain text requirements and key responsibilities.</span>
+                </div>
+            </div>
+
+            <!-- Resume Upload Input -->
+            <div>
+                <label for="resumeFile" class="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white mb-2">
+                    <i class="ph-bold ph-cloud-arrow-up text-blue-500 text-lg"></i>
+                    Upload Your Resume
+                </label>
+                
+                <div class="relative">
+                    <input type="file" id="resumeFile" name="resume" accept=".pdf,.txt" required 
+                        class="w-full text-sm text-slate-500 dark:text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 dark:file:bg-blue-900/30 dark:file:text-blue-400 dark:hover:file:bg-blue-900/50 transition-all border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 cursor-pointer">
+                </div>
+
+                <div class="flex items-start gap-1.5 text-sm text-slate-500 dark:text-slate-400 mt-2">
+                    <i class="ph-fill ph-file-pdf mt-0.5 text-slate-400 dark:text-slate-500"></i>
+                    <span>Accepted formats: <strong class="font-semibold text-slate-700 dark:text-slate-300">.pdf, .txt</strong></span>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-primary w-full py-3.5 text-base mt-2 flex items-center justify-center gap-2">
+                <i class="ph-bold ph-magic-wand text-xl"></i>
+                Analyze Resume Match
+            </button>
+
+        </form>
+    </div>
+
+    <!-- Trust / Security Footer -->
+    <div class="text-center mt-8">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-sm text-sm font-medium text-slate-600 dark:text-slate-300">
+            <i class="ph-fill ph-shield-check text-emerald-500 text-lg"></i> 
+            Your data is processed securely and temporarily
+        </span>
+    </div>
+</div>
 {% endblock %}
