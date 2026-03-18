@@ -1,0 +1,52 @@
+/* Progress bar sizes */
+.progress-height-sm {
+    height: 20px;
+}
+
+.progress-height-md {
+    height: 25px;
+}
+
+/* Score bar colors */
+.bg-score-excellent {
+    background-color: #198754;
+}
+
+.bg-score-good {
+    background-color: #0d6efd;
+}
+
+.bg-score-pass {
+    background-color: #ffc107;
+}
+
+.bg-score-fail {
+    background-color: #dc3545;
+}
+
+/* Card styling */
+.result-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.missing-keywords {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Table styling */
+.rank-column {
+    width: 60px;
+    text-align: center;
+}
+
+.score-column {
+    width: 200px;
+}
+
+/* Status badges */
+.badge-status {
+    font-size: 0.9rem;
+    padding: 0.5em 0.8em;
+}
